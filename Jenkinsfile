@@ -1,4 +1,4 @@
-def registry ='https://artifact12345.jfrog.io/ '
+def registry ='https://artifact12345.jfrog.io/'
 def imageName = 'artifact12345.jfrog.io/dockerbuild-docker-local/demo-nodejs'
 def version   = '1.0.2'
 pipeline{
@@ -7,7 +7,7 @@ pipeline{
             label "buildserver@2"
         }
     }
-   // tools {nodejs 'Nodejs 16.6.0'}
+    tools {nodejs 'Nodejs'}
 
     stages {
          stage('git clone') {
