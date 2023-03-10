@@ -1,5 +1,5 @@
-def registry = 'https://valaxy02.jfrog.io'
-def imageName = 'valaxy02.jfrog.io/nodejs-docker/demo-nodejs'
+def registry ='https://artifact12345.jfrog.io/ '
+def imageName = 'artifact12345.jfrog.io/dockerbuild-docker-local/demo-nodejs'
 def version   = '1.0.2'
 pipeline{
     agent {
@@ -10,6 +10,12 @@ pipeline{
     tools {nodejs 'nodejs-16'}
 
     stages {
+          stages {
+         stage('git clone') {
+            steps{
+              git branch: 'main', url: 'https://github.com/bhimunipallisudharshan/nodejs-project.git'
+        }
+      }
         stage('build') {
             steps{
                 echo "------------ build started ---------"
@@ -40,19 +46,19 @@ stage(" Docker Build ") {
         steps {
             script {
                echo '<--------------- Docker Publish Started --------------->'  
-                docker.withRegistry(registry, 'jfrog-access'){
+                docker.withRegistry(registry, 'jfrog1'){
                     app.push()
                 }    
                echo '<--------------- Docker Publish Ended --------------->'  
             }
         }
     }
-            stage('Deployment') {
-            steps {
-                echo '<--------------- deployment started  --------------->'
-                sh './deploy.sh'
-                echo '<------------- deployment stopped  --------------->'
-            }
+           // stage('Deployment') {
+            //steps {
+              //  echo '<--------------- deployment started  --------------->'
+                //sh './deploy.sh'
+                //echo '<------------- deployment stopped  --------------->'
+            //}
         }  
     }
     }
