@@ -10,7 +10,6 @@ pipeline{
    // tools {nodejs 'Nodejs 16.6.0'}
 
     stages {
-          stages {
          stage('git clone') {
             steps{
               git branch: 'main', url: 'https://github.com/bhimunipallisudharshan/nodejs-project.git'
