@@ -4,7 +4,7 @@ def version   = '1.0.2'
 pipeline{
     agent {
         node {
-            label "valaxy"
+            label "javabuildserver2"
         }
     }
    // tools {nodejs 'Nodejs 16.6.0'}
