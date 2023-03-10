@@ -7,7 +7,7 @@ pipeline{
             label "valaxy"
         }
     }
-    tools {nodejs 'Nodejs 16.6.0'}
+   // tools {nodejs 'Nodejs 16.6.0'}
 
     stages {
           stages {
